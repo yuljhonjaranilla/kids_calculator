@@ -10,11 +10,47 @@ class MathQuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MathQuizScreen(),
+      home: SplashScreen(),
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Math for Kids',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MathQuizScreen()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(30),
+              ),
+              child: Icon(
+                Icons.play_arrow,
+                size: 50,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
